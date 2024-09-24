@@ -2,13 +2,14 @@ import requests
 import pandas as pd
 
 api = "https://overstat.gg/api/stats/"
-urlPrefix = 'https://overstat.gg/'
+urlPrefix = 'https://overstat.gg/player/'
 leagues = {
     "Pinnacle": [7723, 7819, 7917, 8060, 8175],
     "Ascendant": [7722, 7815, 7930, 8022, 8174],
     "Emergent": [7721, 7814, 7929, 7999, 8173],
     "Challengers": [7618, 7793, 7889, 8039, 8176],
-    "Tendies": [7719, 7762, 7875, 7952, 8172]
+    "Tendies": [7719, 7762, 7875, 7952, 8172],
+    "VCS": [7546, 7718, 7855, 8040, 8051, 7156]
 }
 summed_stats = ['damageDealt','knockdowns', 
                 'kills', 'assists', 

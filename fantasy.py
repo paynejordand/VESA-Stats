@@ -2,9 +2,9 @@ import requests
 import pandas as pd
 
 api = "https://overstat.gg/api/stats/"
-urlPrefix = 'https://overstat.gg/'
+urlPrefix = 'https://overstat.gg/player/'
 leagues = {
-    "scrim": [8621],
+    "scrim": [8147],
 }
 
 player_stats = ['name', 'playerId', 
@@ -25,6 +25,7 @@ for league, weeks in leagues.items():
     team_df = pd.DataFrame.from_dict(team_data)
     team_df = team_df[team_stats]
     team_df['name'] = team_df['name'].replace(to_replace="(.+)@.+", value=r"\1", regex=True)
+    team_df['name'] = team_df['name'].replace(to_replace="[’]+", value="'", regex=True)
     team_df.to_csv(f"{league}_fantasy_teams.csv")
 
     player_df = pd.DataFrame.from_dict(player_data)
